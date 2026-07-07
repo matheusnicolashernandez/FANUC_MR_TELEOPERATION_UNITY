@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-1891737770341051790
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: e4df0bced8d588645909d157f54d05f2
+  m_EffectName: ParamEQ
+  m_MixLevel: a7e61ff7ab393114bae2499386043e2b
+  m_Parameters:
+  - m_ParameterName: Center freq
+    m_GUID: 1bbd78c697a1e24479e0e85bdb7502ed
+  - m_ParameterName: Octave range
+    m_GUID: 1d3c45d3dccc8004b9c4fc93ef7d48df
+  - m_ParameterName: Frequency gain
+    m_GUID: 83dfcd93bf12f9045ba8ed45250116d7
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RobotMixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 83dfcd93bf12f9045ba8ed45250116d7
+    name: Gain_4000Hz
+  m_AudioMixerGroupViews:
+  - guids:
+    - 18cf889f47cc44c41a1c4cd8957ca2c2
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 18cf889f47cc44c41a1c4cd8957ca2c2
+  m_Children: []
+  m_Volume: a511b4f9011f8c74aa15a7d0422e8830
+  m_Pitch: f968cc18e6cdea94d8ea54334d9502f8
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  - {fileID: -1891737770341051790}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3557d775eec42864c9be7e8439478bf2
+  m_EffectName: Attenuation
+  m_MixLevel: 2af121d7f4562a54689064cebe004cab
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 8689938d264f47a438214ea7bb1e360c
+  m_FloatValues:
+    ba9b2b106c157ae44b24d21c10b13fb3: 8.400002
+    7db1d301b994c924aa1e9bba5b243250: 0.831
+    ed49c121c0869194fb66e2dc2a981322: -53.4
+    e6b387c15feaf654ebdbf8db6d5aac62: 27.2
+    1f9d409209e17774986cf4ac6b729d92: 3419
+    5306bbe2eb359f54782c74f2454ddf98: 1
+    26f8c4f234e1f5f4eaede4d6e53530ed: 1.02
+    e6439603816d4074cbc0c0d405dbfa22: 1
+    83dfcd93bf12f9045ba8ed45250116d7: 1
+    f9546bc37e9241446872bbdae755ae27: 272
+    1d3c45d3dccc8004b9c4fc93ef7d48df: 0.81
+    5fecc796cd625db4193455bd0ac162ac: 2.455
+    1bbd78c697a1e24479e0e85bdb7502ed: 3675
+    d6b64cc77b078c343a7e0217ef2f73c5: 0.589
+    33bc6ae8bb7080d4391afb99703de412: 0
+    6a12630b61018714697152e759484ef7: 10
+    f1b6e52b959cf3346a7e4d2270ae5eca: 1.4
+    f579c9fd21c7df447a68a0430a3a40eb: 86497
+  m_TransitionOverrides: {}

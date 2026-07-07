@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Utilities</id>
+    <version>3.3.0.2</version>
+    <title>Utilities</title>
+    <authors>Viral Shah</authors>
+    <owners>Viral Shah</owners>
+    <projectUrl>https://github.com/mrvshah/Utilities</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Documentation is included as part of the package.
+Source and current issues at https://github.com/mrvshah/Utilities 
+Raise a bug at github or email viral.shah@hotmail.co.uk</description>
+    <summary>Utilities is a package that helps increase efficiency during development.</summary>
+    <releaseNotes />
+    <language>en-GB</language>
+    <tags>ApplicationStartupValidation AppSettings Wcf Service Enum Extensions MEF Serialization</tags>
+  </metadata>
+</package>

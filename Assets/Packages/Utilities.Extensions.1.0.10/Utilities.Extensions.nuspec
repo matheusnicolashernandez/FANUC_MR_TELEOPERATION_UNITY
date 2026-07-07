@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Utilities.Extensions</id>
+    <version>1.0.10</version>
+    <title>Utilities.Extensions</title>
+    <authors>mohamed.badr</authors>
+    <owners>Mohamed Badr</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://res.cloudinary.com/badr/image/upload/v1537945566/assets/tools_64.png</iconUrl>
+    <description>Library for various useful C# extensions</description>
+    <releaseNotes>Trim sanitized string</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>.NET Extensions</tags>
+    <dependencies />
+  </metadata>
+</package>
