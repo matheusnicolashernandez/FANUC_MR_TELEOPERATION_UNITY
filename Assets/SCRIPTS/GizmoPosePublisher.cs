@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Geometry;
 using RosMessageTypes.Std;
@@ -9,6 +9,10 @@ public class GizmoPosePublisher : MonoBehaviour
     private ROSConnection ros;
     public string topicName = "/unity_pose";
 
+    // Frequência de publicação
+    public float publishRate = 90f;
+    private float publishTimer = 0f;
+
     void Start()
     {
         ros = ROSConnection.GetOrCreateInstance();
@@ -17,44 +21,48 @@ public class GizmoPosePublisher : MonoBehaviour
 
     void Update()
     {
-        // Position conversion (same transformation T: (z, -x, y))
+        // Controla a frequência de publicação
+        publishTimer += Time.deltaTime;
+
+        if (publishTimer < 1f / publishRate)
+            return;
+
+        publishTimer = 0f;
+
+        // Conversão da posição (mesma transformação T: (z, -x, y))
         Vector3 unityPos = transform.position;
         Vector3 rosPos = new Vector3(unityPos.z, -unityPos.x, unityPos.y);
 
-        // For the orientation, we apply the same transformation to the forward and up vectors.
+        // Para a orientação, aplicamos a mesma transformação aos vetores forward e up.
         Vector3 unityForward = transform.forward;
         Vector3 unityUp = transform.up;
 
-        // Applying T(v) = (v.z, -v.x, v.y)
+        // Aplicando T(v) = (v.z, -v.x, v.y)
         Vector3 rosForward = new Vector3(unityForward.z, -unityForward.x, unityForward.y);
         Vector3 rosUp = new Vector3(unityUp.z, -unityUp.x, unityUp.y);
 
-        // Reconstructs the rotation for ROS using the transformed vectors
+        // Reconstrói a rotação para ROS usando os vetores transformados
         Quaternion rosRot = Quaternion.LookRotation(rosForward, rosUp);
 
-        // Debug to check the vectors and angles
-        //Debug.Log("Unity Forward: " + unityForward + " -> ROS Forward: " + rosForward);
-        //Debug.Log("Unity Up: " + unityUp + " -> ROS Up: " + rosUp);
-        //Debug.Log("Unity Euler: " + transform.rotation.eulerAngles + " | ROS Euler: " + rosRot.eulerAngles);
-
-        // Creates the PoseStamped message for ROS
+        // Cria a mensagem PoseStamped para o ROS
         PoseStampedMsg poseMsg = new PoseStampedMsg();
         poseMsg.header = new HeaderMsg();
+
         poseMsg.header.stamp = new TimeMsg((uint)Time.time, 0);
         poseMsg.header.frame_id = "base_link";
 
-        // Sets the converted position
+        // Define a posição convertida
         poseMsg.pose.position.x = rosPos.x;
         poseMsg.pose.position.y = rosPos.y;
         poseMsg.pose.position.z = rosPos.z;
 
-        // Sets the converted orientation
+        // Define a orientação convertida
         poseMsg.pose.orientation.x = rosRot.x;
         poseMsg.pose.orientation.y = rosRot.y;
         poseMsg.pose.orientation.z = rosRot.z;
         poseMsg.pose.orientation.w = rosRot.w;
 
-        // Publishes the message to the ROS topic
+        // Publica a mensagem no tópico ROS
         ros.Send(topicName, poseMsg);
     }
 }
