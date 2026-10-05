@@ -234,9 +234,17 @@ The proposed Mixed Reality teleoperation system was experimentally compared with
 
 If you use this project or any part of the developed teleoperation system in academic work, please cite the corresponding Master's dissertation:
 
-> M. Hernandez, *Development, Integration, and Comparative Evaluation of Mixed Reality and Conventional Robotic Teleoperation Systems: An Integrated Framework for Performance, Workload, Usability, and User Experience*. Master's dissertation, forthcoming.
+@mastersthesis{hernandez2025development,
+  author  = {Hernandez, Matheus Nicolás},
+  title   = {Development, integration, and comparative evaluation of mixed reality and conventional robotic teleoperation systems: an integrated framework for performance, workload, usability, and user experience},
+  school  = {Universidade Federal de Santa Catarina},
+  year    = {2025},
+  address = {Joinville, Brazil},
+  type    = {Master's thesis},
+  url     = {https://repositorio.ufsc.br/handle/123456789/276894}
+}
 
-The complete bibliographic reference and official repository link will be added after the dissertation is formally published.
+
 
 ---
 
